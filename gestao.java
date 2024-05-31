@@ -20,25 +20,16 @@ public class gestao {
             scanner.nextLine(); // consumir nova linha
 
             switch (opcao) {
-                case 1:
-                    adicionarProduto(scanner);
-                    break;
-                case 2:
-                    atualizarQuantidade(scanner);
-                    break;
-                case 3:
-                    removerProduto(scanner);
-                    break;
-                case 4:
-                    exibirEstoque();
-                    break;
-                case 5:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                case 1 -> adicionarProduto(scanner);
+                case 2 -> atualizarQuantidade(scanner);
+                case 3 -> removerProduto(scanner);
+                case 4 -> exibirEstoque();
+                case 5 -> System.out.println("Saindo...");
+                default -> System.out.println("Opção inválida! Tente novamente.");
             }
         } while (opcao != 5);
+
+        scanner.close(); // Fechar scanner
     }
 
     private static void adicionarProduto(Scanner scanner) {
@@ -48,7 +39,7 @@ public class gestao {
         int quantidade = scanner.nextInt();
         scanner.nextLine(); // consumir nova linha
 
-        Produto produto = new Produto(nome, quantidade);
+        Produto produto = new Produto(nome, quantidade); // Certifique-se de usar o construtor correto
         estoque.put(nome, produto);
         System.out.println("Produto adicionado com sucesso!");
     }
